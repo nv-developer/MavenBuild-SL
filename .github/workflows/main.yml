@@ -1,0 +1,27 @@
+name: CICD using Maven and Tomcat
+on:
+  push: # run where there is commit to repo
+  workflow_dispath: # run manually
+jobs:
+  CICDjob:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clone the repo on ubuntu server
+        uses: actions/checkout@v4
+      - name: Install Java and Maven on ubuntu server
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '11'
+          cacde: 'maven'
+      - name: Build the code
+        run: mvn package
+      - name: Connect to lab machine and trigger a Jenkins job
+        uses: cross-the-world/ssh-scp-ssh-pipelines@latest
+        with:
+          host: ''
+          user: ''
+          pass: ''
+          port: 22
+          connect_timeout: 10s
+          first_ssh: curl -l -u admin:Root123$ http://localhost:8080/job/
