@@ -19,11 +19,10 @@ jobs:
       - name: Connect to lab machine and trigger Jenkins job
         uses: appleboy/ssh-action@v1.0.3
         with:
-          host: 3.234.239.26
-          username: labuser
-          password: Nuvelabs123$
+          host: '3.234.239.26'
+          username: 'labuser'
+          password: 'Nuvelabs123$'
           port: 22
-          timeout: 10s
           script: |
-            curl -l -u admin:Root123$ http://localhost:8080/job/deployment-pipeline/build?token=token1
+            curl -l -u admin:Root123$ "http://localhost:8080/job/deployment-pipeline/build?token=token1"
 
