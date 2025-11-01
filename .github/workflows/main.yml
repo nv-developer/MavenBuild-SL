@@ -1,7 +1,7 @@
 name: CICD using Maven and Tomcat
 on:
   push: # run where there is commit to repo
-  workflow_dispath: # run manually
+  workflow_dispatch: # run manually
 jobs:
   CICDjob:
     runs-on: ubuntu-latest
@@ -19,9 +19,9 @@ jobs:
       - name: Connect to lab machine and trigger a Jenkins job
         uses: cross-the-world/ssh-scp-ssh-pipelines@latest
         with:
-          host: ''
-          user: ''
-          pass: ''
+          host: '3.234.239.26'
+          user: 'labuser'
+          pass: 'Nuvelabs123$'
           port: 22
           connect_timeout: 10s
-          first_ssh: curl -l -u admin:Root123$ http://localhost:8080/job/
+          first_ssh: curl -l -u admin:Root123$ http://localhost:8080/job/deployment-pipeline/build?token=token1
