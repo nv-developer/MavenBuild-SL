@@ -16,7 +16,7 @@ jobs:
           cacde: 'maven'
       - name: Build the code
         run: mvn package
-      - name: Connect to lab machine and trigger Jenkins job
+      - name: Connect to lab machine and trigger the Jenkins job
         uses: appleboy/ssh-action@v1.0.3
         with:
           host: '3.234.239.26'
