@@ -25,5 +25,5 @@ jobs:
           port: 22
           timeout: 10s
           script: |
-            curl -u admin:Root123$ "http://localhost:8080/job/deployment-pipeline/build?token=token1"
+            curl -l -u admin:Root123$ http://localhost:8080/job/deployment-pipeline/build?token=token1
 
